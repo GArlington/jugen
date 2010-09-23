@@ -1,4 +1,4 @@
-package org.fredy.jugen.bean;
+package org.fredy.jugen;
 
 import java.util.ArrayList;
 import java.util.List;

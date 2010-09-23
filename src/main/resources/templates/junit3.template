@@ -1,0 +1,11 @@
+package ${javaObjectInfo.packageName};
+
+import junit.framework.TestCase;
+
+public class test extends TestCase {
+    <% javaObjectInfo.publicMethods.each { %>
+    public void test${it[0].toUpperCase()+it.substring(1)}() throws Exception {
+        fail("Not implemented yet");
+    }
+    <% } %>
+}

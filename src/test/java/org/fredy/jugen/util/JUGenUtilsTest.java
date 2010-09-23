@@ -1,11 +1,14 @@
 package org.fredy.jugen.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.util.List;
 
-import org.fredy.jugen.bean.JavaObjectInfo;
+import org.fredy.jugen.JavaObjectInfo;
 import org.junit.Test;
 
 public class JUGenUtilsTest {
@@ -30,5 +33,39 @@ public class JUGenUtilsTest {
         List<String> publicMethods = joi.getPublicMethods();
         assertEquals("test1", publicMethods.get(0));
         assertEquals("test2", publicMethods.get(1));
+    }
+
+    @Test
+    public void testCreateJUnit4() throws Exception {
+        JavaObjectInfo joi = new JavaObjectInfo();
+        joi.setPackageName("org.fredy.test");
+        joi.setClassName("JUnit4Test");
+        joi.addPublicMethod("doSomething1");
+        joi.addPublicMethod("doSomething2");
+        String junit = JUGenUtils.createJUnit(new File(
+                "src/main/resources/templates/junit4.template"), joi);
+        assertEquals(readFile(new File("testdata/JUnit4Test.java")), junit);
+    }
+
+    @Test
+    public void testCreateJUnit3() throws Exception {
+        JavaObjectInfo joi = new JavaObjectInfo();
+        joi.setPackageName("org.fredy.test");
+        joi.setClassName("JUnit3Test");
+        joi.addPublicMethod("doSomething1");
+        joi.addPublicMethod("doSomething2");
+        String junit = JUGenUtils.createJUnit(new File(
+                "src/main/resources/templates/junit3.template"), joi);
+        assertEquals(readFile(new File("testdata/JUnit3Test.java")), junit);
+    }
+    
+    private String readFile(File file) throws Exception {
+        BufferedReader br = new BufferedReader(new FileReader(file));
+        StringBuilder sb = new StringBuilder();
+        String text = "";
+        while ((text = br.readLine()) != null) {
+            sb.append(text).append("\n");
+        }
+        return sb.toString();
     }
 }
