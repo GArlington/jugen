@@ -1,0 +1,12 @@
+package ${javaObjectInfo.packageName}
+
+import static org.junit.Assert.*;
+
+public class ${javaObjectInfo.className}Test {
+    <% javaObjectInfo.publicMethods.each { %>
+    @Test
+    public void test${it[0].toUpperCase()+it.substring(1)}() throws Exception {
+        fail("Not implemented yet");
+    }
+    <% } %>
+}
