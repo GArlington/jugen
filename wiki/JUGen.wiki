@@ -1,0 +1,27 @@
+#summary JUnit Generator
+
+= Introduction =
+
+A simple tool to generate JUnit 3.x or 4.x test cases automatically. 
+
+
+
+= Details =
+
+{{{
+Usage: java -jar jugen.jar <project_dir> <destination_dir> <template_dir> <junit_version> [overwrite]
+}}}
+
+In Eclipse, we can run JUGen easily by creating an External Tools Configuration. For example:
+{{{
+Location: /usr/bin/java
+Working Directory: <the_workspace>
+Arguments:
+-jar 
+/home/fredy/jugen/jugen-0.1-beta.jar
+/home/fredy/workspace/test-app/src
+/home/fredy/workspace/test-app/test 
+/home/fredy/jugen/templates 
+4
+overwrite
+}}}
