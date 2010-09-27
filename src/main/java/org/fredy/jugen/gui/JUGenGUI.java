@@ -29,5 +29,6 @@ public class JUGenGUI implements Executable {
 
     @Override
     public void run() {
+        System.out.println("Not yet implemented!");
     }
 }
