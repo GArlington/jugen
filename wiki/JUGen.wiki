@@ -2,7 +2,7 @@
 
 = Introduction =
 
-A simple tool to generate JUnit 3.x or 4.x test cases automatically. 
+A simple tool to generate JUnit 3.x or 4.x test cases automatically. This tool will only work with Java 5 and 6 source code.
 
 
 
