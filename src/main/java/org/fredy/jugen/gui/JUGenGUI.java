@@ -19,7 +19,7 @@
 
 package org.fredy.jugen.gui;
 
-import org.fredy.jugen.Executable;
+import org.fredy.jugen.core.Executable;
 
 /**
  * JUGen GUI.

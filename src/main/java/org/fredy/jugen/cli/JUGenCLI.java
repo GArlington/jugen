@@ -21,7 +21,7 @@ package org.fredy.jugen.cli;
 
 import java.io.File;
 
-import org.fredy.jugen.Executable;
+import org.fredy.jugen.core.Executable;
 import org.fredy.jugen.core.JUGen;
 import org.fredy.jugen.core.JUGenException;
 import org.fredy.jugen.core.JUGenParam;

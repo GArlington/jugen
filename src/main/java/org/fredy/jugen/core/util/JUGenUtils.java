@@ -88,7 +88,8 @@ public class JUGenUtils {
     
     private static JavaObjectInfo createTestJavaObjectInfo(JavaObjectInfo joi) {
         JavaObjectInfo tjoi = new JavaObjectInfo();
-        tjoi.setClassName(joi.getClassName() + "Test");
+        tjoi.setClassName(joi.getClassName());
+        tjoi.setTestClassName(joi.getClassName() + "Test");
         tjoi.setPackageName(joi.getPackageName());
         Map<String, List<Integer>> map = new HashMap<String, List<Integer>>();
         for (String m : joi.getPublicMethods()) {
@@ -110,7 +111,10 @@ public class JUGenUtils {
                 map.get(m).set(1, counter);
             } 
             tjoi.addPublicMethod(method);
+            tjoi.addPublicTestMethod("test" + String.valueOf(method.charAt(0)).toUpperCase() +
+                    method.substring(1));
         }
+        
         return tjoi;
     }
 }

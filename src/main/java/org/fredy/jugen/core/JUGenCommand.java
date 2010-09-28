@@ -46,7 +46,7 @@ public class JUGenCommand implements Command {
         if (!dir.exists()) {
             dir.mkdirs();
         }
-        File junitFile = new File(dir, result.getJavaObjectInfo().getClassName() + ".java");
+        File junitFile = new File(dir, result.getJavaObjectInfo().getTestClassName() + ".java");
         if (junitFile.exists()) {
             if (param.isOverwrite()) {
                 createFile(junitFile, result.getJUnitContent());

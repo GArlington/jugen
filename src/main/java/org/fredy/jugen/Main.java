@@ -20,6 +20,7 @@
 package org.fredy.jugen;
 
 import org.fredy.jugen.cli.JUGenCLI;
+import org.fredy.jugen.core.Executable;
 import org.fredy.jugen.gui.JUGenGUI;
 
 /**
