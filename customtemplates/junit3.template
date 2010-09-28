@@ -1,0 +1,11 @@
+package ${javaObjectInfo.packageName};
+
+import junit.framework.TestCase;
+
+public class ${javaObjectInfo.testClassName} extends TestCase {
+    public void testCodeCoverage() throws Exception {
+        ${javaObjectInfo.className} o = new ${javaObjectInfo.className}();
+        <% javaObjectInfo.publicMethods.each { %>
+        o.${it}();<% } %>
+    }
+}
