@@ -1,0 +1,12 @@
+package ${javaObjectInfo.packageName}
+
+import static org.junit.Assert.*;
+
+public class ${javaObjectInfo.testClassName} {
+    @Test
+    public void testCodeCoverage() throws Exception {
+        ${javaObjectInfo.className} o = new ${javaObjectInfo.className}();
+        <% javaObjectInfo.publicMethods.each { %>
+        o.${it}();<% } %>
+    }
+}

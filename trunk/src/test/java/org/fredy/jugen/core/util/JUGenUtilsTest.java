@@ -97,6 +97,44 @@ public class JUGenUtilsTest {
         assertEquals(readFile(new File("testdata/JUnit3Test.java")), result.getJUnitContent());
     }
     
+    @Test
+    public void testCreateJUnit3WithCustomTemplates() throws Exception {
+        JavaObjectInfo joi = new JavaObjectInfo();
+        joi.setPackageName("org.fredy.test");
+        joi.setClassName("JUnit3");
+        joi.addPublicMethod("doSomething1");
+        joi.addPublicMethod("doSomething2");
+        JUGenResult result = JUGenUtils.createJUnit(new File("customtemplates/junit3.template"), joi);
+        assertEquals("JUnit3", result.getJavaObjectInfo().getClassName());
+        assertEquals("JUnit3Test", result.getJavaObjectInfo().getTestClassName());
+        assertEquals("org.fredy.test", result.getJavaObjectInfo().getPackageName());
+        List<String> publicMethods = result.getJavaObjectInfo().getPublicMethods();
+        assertEquals("doSomething1", publicMethods.get(0));
+        assertEquals("doSomething2", publicMethods.get(1));
+        List<String> testPublicMethods = result.getJavaObjectInfo().getPublicTestMethods();
+        assertEquals("testDoSomething1", testPublicMethods.get(0));
+        assertEquals("testDoSomething2", testPublicMethods.get(1));
+    }
+    
+    @Test
+    public void testCreateJUnit4WithCustomTemplates() throws Exception {
+        JavaObjectInfo joi = new JavaObjectInfo();
+        joi.setPackageName("org.fredy.test");
+        joi.setClassName("JUnit4");
+        joi.addPublicMethod("doSomething1");
+        joi.addPublicMethod("doSomething2");
+        JUGenResult result = JUGenUtils.createJUnit(new File("customtemplates/junit4.template"), joi);
+        assertEquals("JUnit4", result.getJavaObjectInfo().getClassName());
+        assertEquals("JUnit4Test", result.getJavaObjectInfo().getTestClassName());
+        assertEquals("org.fredy.test", result.getJavaObjectInfo().getPackageName());
+        List<String> publicMethods = result.getJavaObjectInfo().getPublicMethods();
+        assertEquals("doSomething1", publicMethods.get(0));
+        assertEquals("doSomething2", publicMethods.get(1));
+        List<String> testPublicMethods = result.getJavaObjectInfo().getPublicTestMethods();
+        assertEquals("testDoSomething1", testPublicMethods.get(0));
+        assertEquals("testDoSomething2", testPublicMethods.get(1));
+    }
+    
     private String readFile(File file) throws Exception {
         BufferedReader br = new BufferedReader(new FileReader(file));
         StringBuilder sb = new StringBuilder();

@@ -22,6 +22,7 @@ package org.fredy.jugen.core;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
+import java.util.logging.Logger;
 
 import org.fredy.jugen.core.util.JUGenUtils;
 
@@ -30,11 +31,14 @@ import org.fredy.jugen.core.util.JUGenUtils;
  */
 public class JUGenCommand implements Command {
 
+    private static final Logger logger = Logger.getLogger(JUGenCommand.class.getName());
+    
     @Override
     public void execute(JUGenParam param) {
         if (!param.getFile().getName().endsWith(".java")) {
             return;
         }
+        logger.info("Processing " + param.getFile());
         JavaObjectInfo joi = JUGenUtils.getJavaObjectInfo(param.getFile());
         if (joi == null) {
             return;
@@ -59,7 +63,7 @@ public class JUGenCommand implements Command {
     private void createFile(File file, String content) {
         PrintWriter pw = null;
         try {
-            System.out.println("Creating " + file);
+            logger.info("Creating " + file);
             pw = new PrintWriter(file);
             pw.print(content);
         } catch (FileNotFoundException e) {
