@@ -29,7 +29,9 @@ public class JavaObjectInfo {
 
     private String packageName;
     private String className;
+    private String testClassName;
     private List<String> publicMethods = new ArrayList<String>();
+    private List<String> publicTestMethods = new ArrayList<String>();
 
     public String getPackageName() {
         return packageName;
@@ -53,5 +55,21 @@ public class JavaObjectInfo {
 
     public void addPublicMethod(String publicMethod) {
         publicMethods.add(publicMethod);
+    }
+
+    public void setTestClassName(String testClassName) {
+        this.testClassName = testClassName;
+    }
+
+    public String getTestClassName() {
+        return testClassName;
+    }
+
+    public void addPublicTestMethod(String publicMethod) {
+        publicTestMethods.add(publicMethod);
+    }
+
+    public List<String> getPublicTestMethods() {
+        return publicTestMethods;
     }
 }

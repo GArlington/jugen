@@ -2,9 +2,10 @@ package ${javaObjectInfo.packageName};
 
 import junit.framework.TestCase;
 
-public class ${javaObjectInfo.className} extends TestCase {
-    <% javaObjectInfo.publicMethods.each { %>
-    public void test${it[0].toUpperCase()+it.substring(1)}() throws Exception {
+public class ${javaObjectInfo.testClassName} extends TestCase {
+    <% javaObjectInfo.publicTestMethods.each { %>
+    public void ${it}() throws Exception {
         fail("Not implemented yet");
-    }<% } %>
+    }
+    <% } %>
 }
