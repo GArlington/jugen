@@ -24,7 +24,7 @@ Location: /usr/bin/java
 Working Directory: <the_workspace>
 Arguments:
 -jar 
-/home/fredy/jugen/jugen-0.1-beta.jar
+/home/fredy/jugen/jugen.jar
 /home/fredy/workspace/test-app/src
 /home/fredy/workspace/test-app/test 
 /home/fredy/jugen/templates 
