@@ -10,7 +10,7 @@ A simple tool to generate JUnit 3.x or 4.x test cases automatically. This tool w
 
 {{{
 Usage: java -jar jugen.jar <project_dir> <destination_dir> <template_dir> <junit_version> [overwrite]
-
+where
   * project_dir: the directory where the Java source files are located
   * destination_dir: the directory where the JUnit files will be created
   * template_dir: the directory where the JUGen templates are located
