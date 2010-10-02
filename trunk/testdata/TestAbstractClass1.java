@@ -1,6 +1,6 @@
 package org.fredy.test;
 
-public class TestClass1 {
+public abstract class TestAbstractClass1 {
     
     public void test1() {
     }
@@ -12,8 +12,7 @@ public class TestClass1 {
         return null;
     }
     
-    protected void test4() {
-    }
+    public abstract void test4();
     
     private void test5() {
     }
