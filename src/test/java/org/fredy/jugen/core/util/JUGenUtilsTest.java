@@ -43,6 +43,8 @@ public class JUGenUtilsTest {
         assertEquals("test2", publicMethods.get(1));
         assertEquals("test3", publicMethods.get(2));
         assertEquals("test6", publicMethods.get(3));
+        assertEquals("test7", publicMethods.get(4));
+        assertEquals("test8", publicMethods.get(5));
     }
 
     @Test
@@ -55,6 +57,20 @@ public class JUGenUtilsTest {
     public void testGetJavaObjectInfoForEnum() throws Exception {
         JavaObjectInfo joi = JUGenUtils.getJavaObjectInfo(new File("testdata/TestEnum1.java"));
         assertNull(joi);
+    }
+    
+    @Test
+    public void testGetJavaObjectInfoForAbstractClass() throws Exception {
+        JavaObjectInfo joi = JUGenUtils.getJavaObjectInfo(new File("testdata/TestAbstractClass1.java"));
+        assertEquals("org.fredy.test", joi.getPackageName());
+        assertEquals("TestAbstractClass1", joi.getClassName());
+        List<String> publicMethods = joi.getPublicMethods();
+        assertEquals("test1", publicMethods.get(0));
+        assertEquals("test2", publicMethods.get(1));
+        assertEquals("test3", publicMethods.get(2));
+        assertEquals("test6", publicMethods.get(3));
+        assertEquals("test7", publicMethods.get(4));
+        assertEquals("test8", publicMethods.get(5));
     }
     
     @Test

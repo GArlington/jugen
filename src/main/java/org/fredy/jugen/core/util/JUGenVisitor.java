@@ -19,10 +19,11 @@
 
 package org.fredy.jugen.core.util;
 
+import java.lang.reflect.Modifier;
+
 import japa.parser.ast.PackageDeclaration;
 import japa.parser.ast.body.ClassOrInterfaceDeclaration;
 import japa.parser.ast.body.MethodDeclaration;
-import japa.parser.ast.body.ModifierSet;
 import japa.parser.ast.visitor.VoidVisitorAdapter;
 
 import org.fredy.jugen.core.JavaObjectInfo;
@@ -35,7 +36,7 @@ public class JUGenVisitor extends VoidVisitorAdapter<JavaObjectInfo> {
     @Override
     public void visit(ClassOrInterfaceDeclaration coid, JavaObjectInfo joi) {
         super.visit(coid, joi);
-        if (ModifierSet.PUBLIC == coid.getModifiers() && !coid.isInterface()) {
+        if ((coid.getModifiers() & Modifier.PUBLIC) == Modifier.PUBLIC && !coid.isInterface()) {
             joi.setClassName(coid.getName());
         }
     }
@@ -49,11 +50,10 @@ public class JUGenVisitor extends VoidVisitorAdapter<JavaObjectInfo> {
     @Override
     public void visit(MethodDeclaration md, JavaObjectInfo joi) {
         super.visit(md, joi);
-        if (ModifierSet.PUBLIC == md.getModifiers()) {
-            joi.addPublicMethod(md.getName());
-        }
-        if ((ModifierSet.PUBLIC | ModifierSet.STATIC) == md.getModifiers()) {
-            joi.addPublicMethod(md.getName());
+        if ((md.getModifiers() & Modifier.PUBLIC) == Modifier.PUBLIC) {
+            if ((md.getModifiers() & Modifier.ABSTRACT) != Modifier.ABSTRACT) {
+                joi.addPublicMethod(md.getName());
+            }
         }
     }
 }

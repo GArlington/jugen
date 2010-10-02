@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.fredy</groupId>
   <artifactId>jugen</artifactId>
-  <version>0.1-beta</version>
+  <version>0.1</version>
   <name>jugen</name>
   <packaging>jar</packaging>
   <dependencies>
