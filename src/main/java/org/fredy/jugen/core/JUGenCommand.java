@@ -45,6 +45,15 @@ public class JUGenCommand implements Command {
         }
         JUGenResult result = JUGenUtils.createJUnit(new File(param.getTemplateDir(),
                 param.getTemplate().toString()), joi);
+        for (String exclude : param.getExcludeList()) {
+            String regex = exclude.trim().replace("*", ".*");
+            String fullyQualifiedClassName = result.getJavaObjectInfo().getPackageName() + "." + 
+                    result.getJavaObjectInfo().getClassName();
+            if (fullyQualifiedClassName.matches(regex)) {
+                logger.info(fullyQualifiedClassName + " is in the exclude list");
+                return;
+            }
+        }
         File dir = new File(param.getDestDir(), result.getJavaObjectInfo().getPackageName()
                 .replace(".", File.separator));
         if (!dir.exists()) {

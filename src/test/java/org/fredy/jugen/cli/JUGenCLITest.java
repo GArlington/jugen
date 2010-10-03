@@ -80,6 +80,26 @@ public class JUGenCLITest {
     }
     
     @Test
+    public void testValidJUnit3Version() throws Exception {
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "3"};
+        try {
+            JUGenCLI cli = new JUGenCLI(args);
+        } catch (JUGenException e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testValidJUni4tVersion() throws Exception {
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "4"};
+        try {
+            JUGenCLI cli = new JUGenCLI(args);
+        } catch (JUGenException e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
     public void testInvalidJUnitVersion() throws Exception {
         String[] args = new String[] {"testdata/core", "result/j3b", "templates", "10"};
         try {
@@ -91,8 +111,53 @@ public class JUGenCLITest {
     }
     
     @Test
+    public void testValidOverwriteYesKeyword() throws Exception {
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "10", "--overwrite=yes"};
+        try {
+            JUGenCLI cli = new JUGenCLI(args);
+            fail("JUGenException should be thrown");
+        } catch (JUGenException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testValidOverwriteNoKeyword() throws Exception {
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "10", "--overwrite=no"};
+        try {
+            JUGenCLI cli = new JUGenCLI(args);
+            fail("JUGenException should be thrown");
+        } catch (JUGenException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testInvalidExcludeKeyword() throws Exception {
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "4", 
+                "--overwrite=no", "--exclude="};
+        try {
+            JUGenCLI cli = new JUGenCLI(args);
+            fail("JUGenException should be thrown");
+        } catch (JUGenException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    @Test
+    public void testValidExcludeKeyword() throws Exception {
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "4", 
+                "--overwrite=no", "--exclude=org.fredy.*   "};
+        try {
+            JUGenCLI cli = new JUGenCLI(args);
+        } catch (JUGenException e) {
+            fail(e.getMessage());
+        }
+    }
+    
+    @Test
     public void testInvalidOverwriteKeyword() throws Exception {
-        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "10", "abc"};
+        String[] args = new String[] {"testdata/core", "result/j3b", "templates", "10", "--overwrite=ssd"};
         try {
             JUGenCLI cli = new JUGenCLI(args);
             fail("JUGenException should be thrown");
