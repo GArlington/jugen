@@ -19,12 +19,14 @@
 
 package org.fredy.jugen.core;
 
+import static org.junit.Assert.assertTrue;
+
 import java.io.File;
+import java.util.Arrays;
 
 import org.fredy.jugen.test.TestUtils;
 import org.junit.After;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class JUGenTest {
 
@@ -63,5 +65,19 @@ public class JUGenTest {
         assertTrue(new File("result/j3a/org/fredy/jugen/core/JUGenTest.java").exists());
         assertTrue(new File("result/j3a/org/fredy/jugen/core/util/JUGenUtilsTest.java").exists());
         assertTrue(new File("result/j3a/org/fredy/jugen/core/util/JUGenVisitorTest.java").exists());
+    }
+    
+    @Test
+    public void testGenerateJUnitWithExcludeList() {
+        JUGen jugen = new JUGen();
+        JUGenParam param = new JUGenParam();
+        param.setFile(new File("testdata/core"));
+        param.setDestDir(new File("result/j4b"));
+        param.setTemplateDir(new File("templates"));
+        param.setTemplate(Template.JUNIT4);
+        param.setOverwrite(false);
+        param.setExcludeList(Arrays.asList(new String[] {"org.fredy.jugen.*.*JUGen*"}));
+        jugen.generateJUnit(param);
+        assertTrue(new File("result/j4b/org/fredy/jugen/core/JavaObjectInfoTest.java").exists());
     }
 }

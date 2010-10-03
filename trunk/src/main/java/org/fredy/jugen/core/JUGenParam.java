@@ -20,6 +20,8 @@
 package org.fredy.jugen.core;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author fredy
@@ -31,6 +33,7 @@ public class JUGenParam {
     private File destDir;
     private Template template;
     private boolean overwrite;
+    private List<String> excludeList = new ArrayList<String>();
 
     public File getFile() {
         return file;
@@ -70,5 +73,13 @@ public class JUGenParam {
 
     public boolean isOverwrite() {
         return overwrite;
+    }
+
+    public List<String> getExcludeList() {
+        return excludeList;
+    }
+
+    public void setExcludeList(List<String> excludeList) {
+        this.excludeList = excludeList;
     }
 }
