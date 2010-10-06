@@ -76,7 +76,7 @@ public class JUGenTest {
         param.setTemplateDir(new File("templates"));
         param.setTemplate(Template.JUNIT4);
         param.setOverwrite(false);
-        param.setExcludeList(Arrays.asList(new String[] {"org.fredy.jugen.*.*JUGen*"}));
+        param.setExcludeList(Arrays.asList(new String[] {"org\\.fredy\\.jugen\\..*JUGen.*"}));
         jugen.generateJUnit(param);
         assertTrue(new File("result/j4b/org/fredy/jugen/core/JavaObjectInfoTest.java").exists());
     }

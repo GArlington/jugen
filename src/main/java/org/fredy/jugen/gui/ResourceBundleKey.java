@@ -29,10 +29,15 @@ public enum ResourceBundleKey {
     LABEL_DEST_DIR("label.destdir"),
     LABEL_TEMPLATE_DIR("label.templatedir"),
     LABEL_EXCLUDE_LIST("label.excludelist"),
+    LABEL_JUNIT_VERSION("label.junitversion"),
+    LABEL_JUNIT3("label.junit3"),
+    LABEL_JUNIT4("label.junit4"),
+    LABEL_OVERWRITE("label.overwrite"),
     BUTTON_PROJECT_DIR("button.projectdir"),
     BUTTON_DEST_DIR("button.destdir"),
     BUTTON_TEMPLATE_DIR("button.templatedir"),
-    BUTTON_GENERATE("button.generate");
+    BUTTON_GENERATE("button.generate"),
+    ERROR_MANDATORY("error.mandatory");
     
     private String key;
 

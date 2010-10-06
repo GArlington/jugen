@@ -37,7 +37,7 @@ public class Main {
             } else {
                 executable = new JUGenCLI(args);
             }
-        executable.run();
+            executable.run();
         } catch (Exception e) {
            System.out.println(e.getMessage());
         }
