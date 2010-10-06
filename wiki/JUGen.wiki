@@ -8,6 +8,11 @@ A simple tool to generate JUnit 3.x or 4.x test cases automatically. This tool w
 
 = Details =
 
+To use the GUI (on Windows, double clicking on the JAR may work):
+{{{
+Usage: java -jar jugen.jar
+}}}
+To use the CLI:
 {{{
 Usage: java -jar jugen.jar <project_dir> <destination_dir> <template_dir> <junit_version> [--overwrite=[yes|no]] [--exclude=[comma_separated_list]]
 where:
