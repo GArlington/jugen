@@ -9,13 +9,14 @@ A simple tool to generate JUnit 3.x or 4.x test cases automatically. This tool w
 = Details =
 
 {{{
-Usage: java -jar jugen.jar <project_dir> <destination_dir> <template_dir> <junit_version> [overwrite]
-where
+Usage: java -jar jugen.jar <project_dir> <destination_dir> <template_dir> <junit_version> [--overwrite=[yes|no]] [--exclude=[comma_separated_list]]
+where:
   * project_dir: the directory where the Java source files are located
   * destination_dir: the directory where the JUnit files will be created
   * template_dir: the directory where the JUGen templates are located
   * junit_version: 3 or 4
-  * overwrite: when this flag is set, JUGen will overwrite the JUnit files in the destination_dir even they already exists
+  * overwrite: when this flag is set to yes, JUGen will overwrite the JUnit files in the destination_dir even they already exists
+  * exclude: the list of Java files to be excluded from processing
 }}}
 
 In Eclipse, we can run JUGen easily by creating an External Tools Configuration. For example:
