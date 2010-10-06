@@ -30,5 +30,4 @@ Arguments:
 /home/fredy/workspace/test-app/test 
 /home/fredy/jugen/templates 
 4
-overwrite
 }}}
