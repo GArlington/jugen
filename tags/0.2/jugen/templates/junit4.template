@@ -1,0 +1,12 @@
+package ${javaObjectInfo.packageName}
+
+import static org.junit.Assert.*;
+
+public class ${javaObjectInfo.testClassName} {
+    <% javaObjectInfo.publicTestMethods.each { %>
+    @Test
+    public void ${it}() throws Exception {
+        fail("Not implemented yet");
+    }
+    <% } %>
+}
